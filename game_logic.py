@@ -19,9 +19,9 @@ background = Actor('background', (WIDTH // 2, HEIGHT // 2))
 current_music = None
 
 def play_game_music(track_name):
-    global current_music
-   
-    if current_music != track_name:
+       global current_music
+       
+       if current_music != track_name:
         print(f"Tocando música: {track_name}") 
         music.stop()
         music.play(track_name)
@@ -66,7 +66,7 @@ load_map()
 def draw():
     screen.clear()
     if game_state == "menu":
-        play_game_music('game_music')
+        play_game_music("game_music")
 
         background.draw()
         screen.draw.text('WHERE IS MY SNACK', center=(400, 80), fontsize=60, color="white")
@@ -80,7 +80,7 @@ def draw():
         screen.draw.text("Exit", center=exit_button.center, color="white")
 
     elif game_state == "playing":
-        play_game_music('game_music')
+        play_game_music("game_music")
 
         for wall in walls:
             wall.draw()

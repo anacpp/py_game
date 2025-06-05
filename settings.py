@@ -13,7 +13,6 @@ start_button = Rect(250, 150, 300, 50)
 sound_button = Rect(250, 220, 300, 50)
 exit_button = Rect(250, 290, 300, 50)
 
-sound_on = True
 
 # MAP GRID
 
