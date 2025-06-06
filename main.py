@@ -1,5 +1,5 @@
 import pgzrun
-from pgzero.builtins import music
+from pgzero.builtins import music, sounds
 from settings import *
 from player import Player
 from enemies import Enemy
@@ -23,21 +23,22 @@ sound_on = True
 
 
 def play_game_music(track_name):
-    """Play game music if not already playing."""
     global current_music
 
+    if not sound_on:
+        return
+
     if current_music != track_name:
-        print(f"Playing music: {track_name}")
         music.set_volume(0.5)
         music.play(track_name)
         current_music = track_name
 
 
 def play_effect(track_name):
-    """Play a sound effect once."""
-    music.set_volume(1.0)
-    music.play_once(track_name)
-
+    """Play short sound effect."""
+    if hasattr(sounds, track_name):
+        sounds.__getattr__(track_name).play()
+    
 
 def on_mouse_down(pos):
     """Handle mouse clicks in the menu."""
@@ -48,6 +49,12 @@ def on_mouse_down(pos):
             game_state = "playing"
         elif sound_button.collidepoint(pos):
             sound_on = not sound_on
+
+            if not sound_on:
+                music.stop()
+            else:
+                if current_music:
+                    music.play(current_music)
         elif exit_button.collidepoint(pos):
             print("Exit selected")
             quit()
