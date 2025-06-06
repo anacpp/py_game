@@ -34,7 +34,6 @@ def play_effect(track_name):
         music.set_volume(1.0)
         music.play_once(track_name)
 
-
 def on_mouse_down(pos):
     global game_state, sound_on
 
