@@ -7,8 +7,6 @@ class Player:
         self.actor = Actor('player', pos)
         self.speed = 2
         self.walls = walls
-
-        # 🎞️ Frames da animação da boca
         self.frames = ['player', 'player_2', 'player_3', 'player_4', 'player_3', 'player_2']
         self.frame_index = 0
         self.frame_timer = 0

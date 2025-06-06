@@ -20,11 +20,6 @@ background = Actor('background', (WIDTH // 2, HEIGHT // 2))
 current_music = None
 sound_on = True
 
-
-frames = ['player', 'player_2', 'player_3', 'player_4', 'player_3', 'player_2']
-frame_index = 0
-frame_timer = 0
-
 def play_game_music(track_name):
        global current_music
 
@@ -79,8 +74,6 @@ play_game_music('game_music')
 def draw():
     screen.clear()
     if game_state == "menu":
-        
-
         background.draw()
         screen.draw.text('WHERE IS MY SNACK', center=(400, 80), fontsize=60, color="white")
         screen.draw.filled_rect(start_button, "blue")
@@ -111,15 +104,12 @@ def draw():
 
 def update():
     global game_over, game_win
-    
+
     if game_over or game_win:
         return 
 
     if player:
         player.update(keyboard)
-
-    for enemy in enemies:
-        enemy.update()
 
     for coin in coins[:]: 
         if player.actor.colliderect(coin):
@@ -127,6 +117,7 @@ def update():
             coins.remove(coin)
 
     for enemy in enemies:
+        enemy.update()
         if player.actor.colliderect(enemy.actor):
             play_effect('game_over')
             print("Game Over!")
