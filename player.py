@@ -1,13 +1,14 @@
 from pgzero.actor import Actor
-from settings import *
 from pgzero.builtins import Rect
+from settings import *
+
 
 class Player:
     def __init__(self, pos, walls):
-        self.actor = Actor('player', pos)
+        self.actor = Actor('player_rt_1', pos)
         self.speed = 2
         self.walls = walls
-        self.frames_right = ['player', 'player_2', 'player_3', 'player_2']
+        self.frames_right = ['player_rt_1', 'player_rt_2', 'player_rt_3', 'player_rt_2']
         self.frames_left = ['player_lf_1', 'player_lf_2', 'player_lf_3', 'player_lf_2']
         self.frames_up = ['player_up_1', 'player_up_2', 'player_up_3', 'player_up_2']
         self.frames_down = ['player_down_1', 'player_down_2', 'player_down_3', 'player_down_2']
@@ -22,9 +23,11 @@ class Player:
         }
 
     def draw(self):
+        """Draw the player actor."""
         self.actor.draw()
 
     def update(self, keys):
+        """Update position and animation based on keys pressed."""
         if keys.left:
             self.try_move(-self.speed, 0)
             self.current_direction = 'left'
@@ -40,8 +43,8 @@ class Player:
 
         self.animate()
 
-     
     def try_move(self, dx, dy):
+        """Try moving player by dx, dy if no collision."""
         new_rect = Rect(
             (self.actor.left + dx, self.actor.top + dy),
             self.actor.size
@@ -54,9 +57,14 @@ class Player:
         self.actor.y += dy
 
     def animate(self):
+        """Animate player sprite cycling frames per direction."""
         self.frame_timer += 1
         if self.frame_timer >= 5:
-            self.frame_index = (self.frame_index + 1) % len(self.idle_frames[self.current_direction])
-            self.actor.image = self.idle_frames[self.current_direction][self.frame_index]
+            self.frame_index = (
+                self.frame_index + 1
+            ) % len(self.idle_frames[self.current_direction])
+            self.actor.image = self.idle_frames[self.current_direction][
+                self.frame_index
+            ]
             self.frame_timer = 0
 

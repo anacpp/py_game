@@ -1,21 +1,22 @@
 from pgzero.builtins import Rect
 
-# WINDOW AND MAP CONF
+"""Window and map config"""
 
 TITLE = 'WHERE IS MY SNACK?'
 TILE_SIZE = 32
 MAP_WIDTH = 25
 MAP_HEIGHT = 25
 
-# MENU CONFIG
+"""MENU buttons config"""
 
 start_button = Rect(250, 150, 300, 50)
 sound_button = Rect(250, 220, 300, 50)
 exit_button = Rect(250, 290, 300, 50)
 
-
-# MAP GRID
-
+"""
+ MAP GRID
+# 1 = wall, 0 = empty, 'P' = player start, 'C' = coin, 'E' = enemy, 'D' = door
+"""
 map_grid = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 'P', 'C', 0, 0, 0, 0, 'C', 0, 'C', 0, 0, 0, 0, 0, 0, 'C', 0, 0, 0, 0, 0, 0, 'C', 1],
