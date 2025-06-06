@@ -20,6 +20,11 @@ background = Actor('background', (WIDTH // 2, HEIGHT // 2))
 current_music = None
 sound_on = True
 
+
+frames = ['player', 'player_2', 'player_3', 'player_4', 'player_3', 'player_2']
+frame_index = 0
+frame_timer = 0
+
 def play_game_music(track_name):
        global current_music
 
@@ -106,7 +111,7 @@ def draw():
 
 def update():
     global game_over, game_win
-
+    
     if game_over or game_win:
         return 
 

@@ -8,10 +8,17 @@ class Player:
         self.speed = 2
         self.walls = walls
 
+        # 🎞️ Frames da animação da boca
+        self.frames = ['player', 'player_2', 'player_3', 'player_4', 'player_3', 'player_2']
+        self.frame_index = 0
+        self.frame_timer = 0
+
     def draw(self):
         self.actor.draw()
 
     def update(self, keys):
+        self.animate()  
+
         if keys.left:
             self.try_move(-self.speed, 0)
         if keys.right:
@@ -29,6 +36,14 @@ class Player:
         for wall in self.walls:
             wall_rect = Rect(wall.left, wall.top, wall.width, wall.height)
             if new_rect.colliderect(wall_rect):
-                return     
+                return
         self.actor.x += dx
         self.actor.y += dy
+
+    def animate(self):
+        self.frame_timer += 1
+        if self.frame_timer >= 5:
+            self.frame_index = (self.frame_index + 1) % len(self.frames)
+            self.actor.image = self.frames[self.frame_index]
+            self.frame_timer = 0
+
