@@ -78,7 +78,7 @@ Apenas os permitidos:
 **PgZero**:
 
   ---
-  ## 🛠️ Instalação e Execução
+## 🛠️ Instalação e Execução
 
 ### 1. 📦 Requisitos
 
@@ -94,7 +94,7 @@ python3 --version
 pip install pgzero
 ```
 
-### Executando o Jogo
+### 3.Executando o Jogo
 Após a instalação da biblioteca pgzero, vá até a pasta onde estão os arquivos do jogo e execute no terminal:
 ```bash
 pgzrun main.py
