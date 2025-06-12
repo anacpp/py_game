@@ -47,7 +47,6 @@ Apenas os permitidos:
 - `player.py`: classe `Player` com movimentação, colisão e animação
 - `enemies.py`: classe `Enemy` com IA básica e animação
 - `settings.py`: mapa, botões do menu e constantes do jogo
-- `assets/`: (não incluído aqui) sprites e arquivos de som utilizados pelo jogo
 
 ---
 
