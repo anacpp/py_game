@@ -77,7 +77,7 @@ Apenas os permitidos:
 - Biblioteca `pgzero` instalada
 **PgZero**:
 
-  ---
+---
 ## 🛠️ Instalação e Execução
 
 ### 1. 📦 Requisitos
